@@ -1,0 +1,16 @@
+{
+  "name": "Programming III", 
+
+  "repository": {
+    "type": "git",
+    "url": "git + https://github.com/GevorgMirzoyan/Project"
+  },
+  "author": "Gevorg Mirzoyan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "engines": {
+    "node": "4.7.2"
+  }
+}
