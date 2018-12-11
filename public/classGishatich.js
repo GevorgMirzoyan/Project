@@ -1,4 +1,6 @@
-module.exports = class Gishatich extends global.Class10 //done
+var LivingCreature = require('./LivingCreature.js');
+
+module.exports = class Gishatich extends LivingCreature //done
 {
     constructor(x, y) 
     {

@@ -1,4 +1,6 @@
-module.exports = class Mard extends global.Class10 //done
+var LivingCreature = require('./LivingCreature.js');
+
+module.exports = class Mard extends LivingCreature //done
 {
     constructor(x, y) 
     {

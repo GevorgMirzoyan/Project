@@ -1,4 +1,4 @@
-module.exports = class Class10 //done
+module.exports = class LivingCreature //done
 {
     constructor(x, y) //done
     {

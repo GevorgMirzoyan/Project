@@ -1,4 +1,6 @@
-module.exports = class Xotaker extends global.Class10 //done
+var LivingCreature = require('./LivingCreature.js');
+
+module.exports = class Xotaker extends global.LivingCreature //done
 {
     constructor(x, y) 
     {
