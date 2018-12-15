@@ -272,9 +272,9 @@ module.exports = class Mutant extends LivingCreature //done
         }
     }
 
-    utel() //done
+    utel() //donex
     {
-        if(weather != 'winter')
+        if(global.weather != 'winter')
         {
             var xot = this.yntrelVandak(1);
             var norVandak = this.getRandomArr(xot);
