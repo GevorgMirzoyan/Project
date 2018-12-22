@@ -14,6 +14,7 @@
   "author": "GevorgMirzoyan",
   "license": "ISC",
   "dependencies": {
+    "expres": "0.0.5",
     "express": "^4.16.4",
     "socket.io": "^2.2.0"
   },
