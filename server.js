@@ -5,12 +5,12 @@ var io = require('socket.io')(server);
 var fs = require('fs');
 
 matrix = [];
-qanak = 30;
+qanak = 100;
 
-xotakerQanak = 3;
-gishatichQanak = 3;
-mardQanak = 3;
-treeQanak = 3;
+xotakerQanak = 30;
+gishatichQanak = 0;
+mardQanak = 0;
+treeQanak = 0;
 
 function random(max) 
 {
@@ -227,6 +227,8 @@ global.hivandMardik = 0;
     fs.writeFileSync(file, text);
     }, 1000)
 
+    global.weather = 'spring';
+
   setInterval(function () 
   {
     if (weather == 'spring') 
@@ -250,8 +252,6 @@ global.hivandMardik = 0;
     }
   }, 3000) 
   
-  setInterval(function () 
-  {
     function draw()
     {
       for(var i in virusArr)
@@ -300,7 +300,7 @@ global.hivandMardik = 0;
 
     setInterval(draw, 1000);
 
-    global.weather = 'spring';
-
-io.sockets.emit('send matrix', matrix, weather);
-}, 1000)
+    setInterval(function () 
+    {
+        io.sockets.emit('send matrix', matrix, weather);
+    }, 1000)

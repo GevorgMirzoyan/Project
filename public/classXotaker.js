@@ -1,4 +1,6 @@
 var LivingCreature = require('./LivingCreature.js');
+var Virus = require('./classVirus.js');
+
 
 module.exports = class Xotaker extends global.LivingCreature //done
 {
@@ -574,6 +576,9 @@ module.exports = class Xotaker extends global.LivingCreature //done
             {
                 if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
                 {
+                    norVirusner ++;
+                    var virus = new Virus(xotakerArr[i].x,xotakerArr[i].y);
+                    global.virusArr.push(virus);
                     matrix[this.y][this.x] = 8;
                     xotakerArr.splice(i, 1);
                     break;

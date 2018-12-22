@@ -5,7 +5,7 @@ module.exports = class Virus extends LivingCreature //done
     constructor(x, y) 
     {
         super(x, y);
-        this.timer = 0;
+        this.virus_time = 0;
     }
 
     antiVirus() //done
