@@ -211,20 +211,19 @@ global.hivandMardik = 0;
       }
   }
 
-  setInterval(function () 
+    setInterval(function () 
     {
-    global.file = "data.json"
-    global.text = "Xoteri qanak" + '-' + grassArr.length + "\nXotakernei qanak" + '-' + xotakerArr.length + "\nGishatichneri qanak"
-                    + '-' + gishatichArr.length + "\nMardik" + '-' + mardArr.length + "\nVirusner" + '-' + virusArr.length + "\nTsarer" + '-' + treeArr.length
+        global.file = "data.json"
+        
+        var obj = 
+        {
+            'Xoteri qanak' : grassArr.length, 'Xotakernei qanak' : xotakerArr.length, 'Gishatichneri qanak' : gishatichArr.length, 'Mardik' : mardArr.length, 'Virusner' : virusArr.length, 'Tsarer' : treeArr.length,
+            'Nor xoter' : norXoter, 'Nor tsarer' : norTsarer, 'Nor xotakerner' : norXotakerner, 'Nor gishatichner' : norGishatichner, 'Nor mardik' : norMardik, 'Nor virusner' : norVirusner,
+            'Hivand xoter' : hivandXoter, 'Hivand tsarer' : hivandTsarer, 'Hivand xotakerner' : hivandXotakerner, 'Hivand gishatichner' : hivandGishatichner, 'Hivand mardik' : hivandMardik
+        }
 
-                    + "\n\nNor xoter" + '-' + norXoter + "\nNor tsarer" + '-' + norTsarer + "\nNor xotakerner" + '-' + norXotakerner
-                    + "\nNor gishatichner" + '-' + norGishatichner + "\nNor mardik" + '-' + norMardik + "\nNor virusner" + '-' + norVirusner
-
-                    + "\n\nHivand xoter" + '-' + hivandXoter + "\nHivand tsarer" + '-' + hivandTsarer + "\nHivand xotakerner" + '-' + hivandXotakerner
-                    + "\nHivand gishatichner" + '-' + hivandGishatichner + "\nHivand mardik" + '-' + hivandMardik;
-                    
-
-    fs.writeFileSync(file, text);
+        var myJSON = JSON.stringify(obj);
+        fs.writeFile(file, myJSON);
     }, 1000)
 
     global.weather = 'spring';
