@@ -5,9 +5,9 @@ var io = require('socket.io')(server);
 var fs = require('fs');
 
 matrix = [];
-qanak = 100;
+qanak = 10;
 
-xotakerQanak = 30;
+xotakerQanak = 5;
 gishatichQanak = 0;
 mardQanak = 0;
 treeQanak = 0;
@@ -183,7 +183,7 @@ for (var y = 0; y < matrix.length; ++y) {
         }
     }
 }
-var info = {"Info":[]};
+var info = { "Info": [] };
 setInterval(function () {
     global.file = "data.json"
 
@@ -193,10 +193,10 @@ setInterval(function () {
         'Nor xoter': norXoter, 'Nor tsarer': norTsarer, 'Nor xotakerner': norXotakerner, 'Nor gishatichner': norGishatichner, 'Nor mardik': norMardik, 'Nor virusner': norVirusner,
         'Hivand xoter': hivandXoter, 'Hivand tsarer': hivandTsarer, 'Hivand xotakerner': hivandXotakerner, 'Hivand gishatichner': hivandGishatichner, 'Hivand mardik': hivandMardik
     }
-    info.a.push(obj);
+    info.Info.push(obj);
 
     var myJSON = JSON.stringify(info, null, 3);
-    fs.writeFile(file, myJSON);
+    fs.writeFileSync(file, myJSON);
 }, 1000)
 
 global.weather = 'spring';
