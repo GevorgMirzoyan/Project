@@ -152,27 +152,12 @@ module.exports = class Grass extends LivingCreature //done
 
     mahanal() //done
     {
-        if(this.hivandutyun_mahacu == true)
+        for(var i in grassArr)
         {
-            for(var i in grassArr)
+            if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
             {
-                if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
-                {
-                    matrix[this.y][this.x] = 8;
-                    grassArr.splice(i, 1)
-                }
-            }
-        }
-
-        else
-        {
-            for(var i in grassArr)
-            {
-                if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
-                {
-                    matrix[this.y][this.x] = 0;
-                    grassArr.splice(i, 1);
-                }
+                matrix[this.y][this.x] = 8;
+                grassArr.splice(i, 1)
             }
         }
     }

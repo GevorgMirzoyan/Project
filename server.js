@@ -5,9 +5,9 @@ var io = require('socket.io')(server);
 var fs = require('fs');
 
 matrix = [];
-qanak = 10;
+qanak = 5;
 
-xotakerQanak = 5;
+xotakerQanak = 2;
 gishatichQanak = 0;
 mardQanak = 0;
 treeQanak = 0;
@@ -125,6 +125,7 @@ global.norXoter = 0;
 global.norTsarer = 0;
 global.norXotakerner = 0;
 global.norGishatichner = 0;
+global.norYntaniKendaniner = 0;
 global.norMardik = 0;
 global.norVirusner = 0;
 
@@ -132,6 +133,7 @@ global.hivandXoter = 0;
 global.hivandTsarer = 0;
 global.hivandXotakerner = 0;
 global.hivandGishatichner = 0;
+global.hivandYntaniKendaniner = 0;
 global.hivandMardik = 0;
 
 for (var y = 0; y < matrix.length; ++y) {
@@ -220,38 +222,43 @@ setInterval(function () {
 }, 3000)
 
 function draw() {
+    for (var y = 0; y < matrix.length; ++y) {
+        for (var x = 0; x < matrix[y].length; ++x) {
+            if (matrix[y][x] == 8) {
+                var virus = new Virus(x, y);
+                virusArr.push(virus);
+                norVirusner++;
+            }
+        }
+    }
+
     for (var i in virusArr) {
         virusArr[i].antiVirus();
     }
 
     for (var i in mardArr) {
-        // mardArr[i].weather();
         mardArr[i].timeout();
         mardArr[i].utel();
         mardArr[i].hivandutyun();
     }
 
     for (var i in grassArr) {
-        // grassArr[i].weatherSwitch();
         grassArr[i].bazmanal();
         grassArr[i].hivandutyun();
     }
 
     for (var i in gishatichArr) {
-        // gishatichArr[i].weather();
         gishatichArr[i].timeout();
         gishatichArr[i].utel();
         gishatichArr[i].hivandutyun();
     }
 
     for (var i in treeArr) {
-        // treeArr[i].weather();
         treeArr[i].bazmanal();
         treeArr[i].hivandutyun();
     }
 
     for (var i in xotakerArr) {
-        // xotakerArr[i].weather();
         xotakerArr[i].timeout();
         xotakerArr[i].utel();
         xotakerArr[i].hivandutyun();

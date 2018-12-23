@@ -1,8 +1,6 @@
 var LivingCreature = require('./LivingCreature.js');
-var Virus = require('./classVirus.js');
 
-
-module.exports = class Xotaker extends global.LivingCreature //done
+module.exports = class Xotaker extends LivingCreature //done
 {
     constructor(x, y) 
     {
@@ -80,6 +78,7 @@ module.exports = class Xotaker extends global.LivingCreature //done
                 if(this.energy <= 0)
                 {
                     this.energy_zero = true;
+                    this.mahanal();
                 }
             }
 
@@ -90,6 +89,7 @@ module.exports = class Xotaker extends global.LivingCreature //done
                 if(this.energy <= 0)
                 {
                     this.energy_zero = true;
+                    this.mahanal();
                 }
             }
         }
@@ -133,7 +133,7 @@ module.exports = class Xotaker extends global.LivingCreature //done
 
     bazmanal() //done
     {
-        if(this.ser == 1 && this.bazmanal_timeout == true && this.hivandutyun_mahacu == false)
+        if(this.bazmanal_timeout == true && this.hivandutyun_mahacu == false)
         {
             var datarkVandakner = this.yntrelVandak(0);
             var norVandak = this.getRandomArr(datarkVandakner);
@@ -162,8 +162,6 @@ module.exports = class Xotaker extends global.LivingCreature //done
 
                     if(xotaker_igakan.bazmacox == false)
                     {
-                        norXotakerner ++;
-                        
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
@@ -197,7 +195,6 @@ module.exports = class Xotaker extends global.LivingCreature //done
                     
                     else if(xotaker_igakan.bazmacox == true)
                     {
-                        norXotakerner ++;
                         xotaker_igakan.bazmacox = false;
                         
                         var norx = norVandak[0];
@@ -251,6 +248,8 @@ module.exports = class Xotaker extends global.LivingCreature //done
                         
                                 var norXotaker2 = new Xotaker(norx, nory);
                                 xotakerArr.push(norXotaker2);
+
+                                norXotakerner ++;
                         
                                 if(matrix[nory][norx] == 2)
                                 {
@@ -266,7 +265,7 @@ module.exports = class Xotaker extends global.LivingCreature //done
                     }
                 }
 
-                if(norVandak4)
+                else if(norVandak4)
                 {
                     this.bazmanal_timeout = false; 
 
@@ -314,7 +313,6 @@ module.exports = class Xotaker extends global.LivingCreature //done
                     
                     else if(xotaker_igakan.bazmacox == true)
                     {
-                        norXotakerner ++;
                         xotaker_igakan.bazmacox = false;
                        
                         var norx = norVandak4[0];
@@ -356,7 +354,7 @@ module.exports = class Xotaker extends global.LivingCreature //done
                             }
                         }
 
-                        if(norVandak4)
+                        if(norVandak5)
                         {
                             if(norVandak4[0] != norVandak5[0] && norVandak4[1] != norVandak5[1])
                             {
@@ -564,6 +562,7 @@ module.exports = class Xotaker extends global.LivingCreature //done
                 hivandXotakerner ++;
                 this.hivandutyun_mahacu = true;
                 bool = false;
+                this.mahanal();
             }
         }
     }
@@ -576,12 +575,8 @@ module.exports = class Xotaker extends global.LivingCreature //done
             {
                 if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
                 {
-                    norVirusner ++;
-                    var virus = new Virus(xotakerArr[i].x,xotakerArr[i].y);
-                    global.virusArr.push(virus);
                     matrix[this.y][this.x] = 8;
-                    global.xotakerArr.splice(i, 1);
-                    break;
+                    xotakerArr.splice(i, 1);
                 }
             }
         }
@@ -593,8 +588,7 @@ module.exports = class Xotaker extends global.LivingCreature //done
                 if (this.x == xotakerArr[i].x && this.y == xotakerArr[i].y) 
                 {
                     matrix[this.y][this.x] = 0;
-                    global.xotakerArr.splice(i, 1);
-                    break;
+                    xotakerArr.splice(i, 1);
                 }
             }
         }

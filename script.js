@@ -3,56 +3,46 @@ socket = io.connect('http://localhost:3000');
 
 var side = 20;
 
-function setup()
-{
+function setup() {
     frameRate(10);
     createCanvas(1001, 1001);
     background('#acacac');
 }
 
-socket.on('send matrix', function(matrix, weather)
-{
-    for (var y = 0; y < matrix.length; y++) 
-    {
-        for (var x = 0; x < matrix[y].length; x++) 
-        {
+socket.on('send matrix', function (matrix, weather) {
+    for (var y = 0; y < matrix.length; y++) {
+        for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 0) //datark vandak
             {
-                if(weather == 'winter')
-                {
+                if (weather == 'winter') {
                     fill("white");
                     rect(x * side, y * side, side, side);
                 }
 
-                else
-                {
+                else {
                     fill("#acacac");
-                    rect(x * side, y * side, side, side); 
+                    rect(x * side, y * side, side, side);
                 }
             }
 
             else if (matrix[y][x] == 1) //xot
             {
-                if(weather == 'spring')
-                {
+                if (weather == 'spring') {
                     fill("#30ff30");
                     rect(x * side, y * side, side, side);
                 }
 
-                if(weather == 'summer')
-                {
+                if (weather == 'summer') {
                     fill("#008000");
                     rect(x * side, y * side, side, side);
                 }
 
-                if(weather == 'autumn')
-                {
+                if (weather == 'autumn') {
                     fill("#c8d123");
                     rect(x * side, y * side, side, side);
                 }
 
-                if(weather == 'winter')
-                {
+                if (weather == 'winter') {
                     fill("#e0ffe0");
                     rect(x * side, y * side, side, side);
                 }
@@ -63,7 +53,7 @@ socket.on('send matrix', function(matrix, weather)
                 fill("yellow");
                 rect(x * side, y * side, side, side);
             }
-            
+
             else if (matrix[y][x] == 2.5) //xotaker_igakan
             {
                 fill("#fa00ff");
@@ -77,6 +67,18 @@ socket.on('send matrix', function(matrix, weather)
             }
 
             else if (matrix[y][x] == 3.5) //gishatich_igakan
+            {
+                fill("#9825ed");
+                rect(x * side, y * side, side, side);
+            }
+
+            else if (matrix[y][x] == 6) //yntaniKendani_arakan
+            {
+                fill("#ff5000");
+                rect(x * side, y * side, side, side);
+            }
+
+            else if (matrix[y][x] == 6.5) //yntaniKendani_igakan
             {
                 fill("#9825ed");
                 rect(x * side, y * side, side, side);

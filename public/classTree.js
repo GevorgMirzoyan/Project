@@ -152,28 +152,13 @@ module.exports = class Tree extends LivingCreature //done
 
     mahanal() //done
     {
-        if(this.hivandutyun_mahacu == true)
+        for(var i in treeArr)
         {
-            for(var i in treeArr)
+            if (this.x == treeArr[i].x && this.y == treeArr[i].y) 
             {
-                if (this.x == treeArr[i].x && this.y == treeArr[i].y) 
-                {
-                    matrix[this.y][this.x] = 8;
-                    treeArr.splice(i, 1);
-                }
+                matrix[this.y][this.x] = 8;
+                treeArr.splice(i, 1);
             }
-        }
-
-        else
-        {
-            for(var i in treeArr)
-            {
-                if (this.x == treeArr[i].x && this.y == treeArr[i].y) 
-                {
-                    matrix[this.y][this.x] = 0;
-                    treeArr.splice(i, 1);
-                }
-            }
-        }
+        }  
     }
 }

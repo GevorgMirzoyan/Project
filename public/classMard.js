@@ -144,6 +144,7 @@ module.exports = class Mard extends LivingCreature //done
                 if(this.energy <= 0)
                 {
                     this.energy_zero = true;
+                    this.mahanal();
                 }
             }
 
@@ -154,6 +155,7 @@ module.exports = class Mard extends LivingCreature //done
                 if(this.energy <= 0)
                 {
                     this.energy_zero = true;
+                    this.mahanal();
                 }
             }
         }
@@ -188,7 +190,6 @@ module.exports = class Mard extends LivingCreature //done
                     if((norVandak3 && norVandak3[0] == gishatichArr[i].x && norVandak3[1] == gishatichArr[i].y) || (norVandak6 && norVandak6[0] == gishatichArr[i].x && norVandak6[1] == gishatichArr[i].y))
                     {
                         var gishatich = gishatichArr[i];
-                        yntaniKendaniArr.push(gishatich);
                     }
                 }
             }
@@ -228,19 +229,31 @@ module.exports = class Mard extends LivingCreature //done
                     }
                 }
 
-                this.energy -= 2;
+                this.energy -= 3;
 
                 if(this.energy <= 0)
                 {
                     this.energy_zero = true;
+                    this.mahanal();
                 }
             }
 
-            else if ((norVandak3 || norVandak6) && gishatich.yntaniKendani == false  && this.ser == 1)
+            else if ((norVandak3 || norVandak6) && this.ser == 1)
             {
                 if(this.wood >= 3)
                 {
                     gishatich.yntaniKendani = true;
+                    yntaniKendaniArr.push(gishatich);
+                    norYntaniKendaniner ++;
+                    var yntaniKendani = gishatich;
+
+                    for (var i in gishatichArr) 
+                    {
+                        if (gishatich.x == gishatichArr[i].x && gishatich.y == gishatichArr[i].y) 
+                        {
+                            gishatichArr.splice(i, 1);                       
+                        }
+                    }
 
                     this.axorjak = 0;
                     this.wood -= 3;
@@ -256,17 +269,15 @@ module.exports = class Mard extends LivingCreature //done
                         var norx = norVandak6[0];
                         var nory = norVandak6[1];
                     }
-
-                    matrix[nory][norx] = 8;
                         
-                    if(gishatich.ser == 1)
+                    if(yntaniKendani.ser == 1)
                     {
-                        matrix[nory][norx] = 8;
+                        matrix[nory][norx] = 6;
                     }
 
                     else
                     {
-                        matrix[nory][norx] = 3.5;
+                        matrix[nory][norx] = 6.5;
                     }
 
                     this.energy -= 5;
@@ -274,6 +285,7 @@ module.exports = class Mard extends LivingCreature //done
                     if(this.energy <= 0)
                     {
                         this.energy_zero = true;
+                        this.mahanal();
                     }
                 }
 
@@ -342,6 +354,7 @@ module.exports = class Mard extends LivingCreature //done
                     else 
                     {
                         this.energy_zero = true;
+                        this.mahanal();
 
                         gishatich.axorjak += 1;
                         gishatich.energy += 3;
@@ -494,7 +507,7 @@ module.exports = class Mard extends LivingCreature //done
     
     bazmanal() //done
     {
-        if(this.ser == 1 && this.bazmanal_timeout == true && this.hivandutyun_mahacu == false)
+        if(this.bazmanal_timeout == true && this.hivandutyun_mahacu == false)
         {
             var datarkVandakner = this.yntrelVandak(0);
             var norVandak = this.getRandomArr(datarkVandakner);
@@ -611,19 +624,19 @@ module.exports = class Mard extends LivingCreature //done
                                     matrix[nory][norx] = 4.5;
                                 }
                         
-                                var norMard = new Mard(norx, nory);
-                                mardArr.push(norMard);
+                                var norMard2 = new Mard(norx, nory);
+                                mardArr.push(norMard2);
 
                                 norMardik ++;
                         
                                 if(matrix[nory][norx] == 4)
                                 {
-                                    norMard.ser = 1;
+                                    norMard2.ser = 1;
                                 }
                         
                                 else
                                 {
-                                    norMard.ser = 2 ;
+                                    norMard2.ser = 2 ;
                                 }
                             }
                         }
@@ -665,6 +678,15 @@ module.exports = class Mard extends LivingCreature //done
                         {
                             norMard.ser = 2 ;
                         }
+
+                        for(var i in grassArr)
+                        {
+                            if(norMard.x == grassArr[i].x && norMard.y == grassArr[i].y)
+                            {
+                                grassArr.splice(i, 1);
+                                norMard.axorjak += 1;
+                            }
+                        }
                     }
                     
                     else if(mard_igakan.bazmacox == true)
@@ -701,7 +723,16 @@ module.exports = class Mard extends LivingCreature //done
                             norMard.ser = 2 ;
                         }
 
-                        if(norVandak6)
+                        for(var i in grassArr)
+                        {
+                            if(norMard.x == grassArr[i].x && norMard.y == grassArr[i].y)
+                            {
+                                grassArr.splice(i, 1);
+                                norMard.axorjak += 1;
+                            }
+                        }
+
+                        if(norVandak7)
                         {
                             if(norVandak6[0] != norVandak7[0] && norVandak6[1] != norVandak7[1])
                             {
@@ -720,19 +751,28 @@ module.exports = class Mard extends LivingCreature //done
                                     matrix[nory][norx] = 4.5;
                                 }
                         
-                                var norMard = new Mard(norx, nory);
-                                mardArr.push(norMard);
+                                var norMard2 = new Mard(norx, nory);
+                                mardArr.push(norMard2);
 
                                 norMardik ++;
                         
                                 if(matrix[nory][norx] == 4)
                                 {
-                                    norMard.ser = 1;
+                                    norMard2.ser = 1;
                                 }
                         
                                 else
                                 {
-                                    norMard.ser = 2 ;
+                                    norMard2.ser = 2 ;
+                                }
+
+                                for(var i in grassArr)
+                                {
+                                    if(norMard2.x == grassArr[i].x && norMard2.y == grassArr[i].y)
+                                    {
+                                        grassArr.splice(i, 1);
+                                        norMard2.axorjak += 1;
+                                    }
                                 }
                             }
                         }
@@ -828,7 +868,7 @@ module.exports = class Mard extends LivingCreature //done
                             }
                         }
 
-                        if(norVandak4)
+                        if(norVandak5)
                         {
                             if(norVandak4[0] != norVandak5[0] && norVandak4[1] != norVandak5[1])
                             {
@@ -950,6 +990,7 @@ module.exports = class Mard extends LivingCreature //done
                 hivandMardik ++;
                 this.hivandutyun_mahacu = true;
                 bool = false;
+                this.mahanal();
             }
         }
     }
@@ -976,7 +1017,6 @@ module.exports = class Mard extends LivingCreature //done
                 {
                     matrix[this.y][this.x] = 0;
                     mardArr.splice(i, 1);
-                    break;
                 }
             }
         }
