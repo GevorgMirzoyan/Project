@@ -5,9 +5,9 @@ var io = require('socket.io')(server);
 var fs = require('fs');
 
 matrix = [];
-qanak = 5;
+qanak = 20;
 
-xotakerQanak = 2;
+xotakerQanak = 15;
 gishatichQanak = 0;
 mardQanak = 0;
 treeQanak = 0;
@@ -18,6 +18,14 @@ function random(max) {
 
 function getRandomNum(max) {
     return Math.floor(Math.random() * max);
+}
+
+function getRandomArr(array) //done
+{
+    var random_obj = Math.round(Math.random() * array.length);
+    var object = array[random_obj];
+
+    return object;
 }
 
 for (var a = 0; a < qanak; ++a) {
@@ -219,7 +227,137 @@ setInterval(function () {
     else if (weather == 'winter') {
         weather = 'spring';
     }
-}, 3000)
+}, 10000)
+
+function hivandutyun() {
+    if (weather == 'winter') {
+        for (var i = 0; i < 150; i++) {
+            var r = random(1200);
+
+            if (r <= 200 && grassArr.length > 0) {   //xoti hivandutyun
+                var r2 = getRandomArr(grassArr);
+                r2.hivandutyun_mahacu = true;
+                hivandXoter++;
+            }
+
+            else if (r > 200 && r <= 400 && xotakerArr.length > 0) {   //xotakeri hivandutyun
+                var r3 = getRandomArr(xotakerArr);
+                r3.hivandutyun_mahacu = true;
+                hivandXotakerner++;
+            }
+
+            else if (r > 400 && r <= 600 && gishatichArr.length > 0) {   //gishatchi hivandutyun
+                var r4 = getRandomArr(gishatichArr);
+                gishatichArr[r4].hivandutyun_mahacu = true;
+                hivandGishatichner++;
+            }
+
+            else if (r > 600 && r <= 800 && yntaniKendaniArr.length > 0) {   //yntani kendanu hivandutyun
+                var r5 = getRandomArr(yntaniKendaniArr);
+                yntaniKendaniArr[r5].hivandutyun_mahacu = true;
+                hivandYntaniKendaniner++;
+            }
+
+            else if (r > 800 && r <= 1000 && mardArr.length > 0) {   //mardu hivandutyun
+                var r6 = getRandomArr(mardArr);
+                mardArr[r6].hivandutyun_mahacu = true;
+                hivandMardik++;
+            }
+
+            else if (r > 100 && r <= 1200 && treeArr.length > 0) {   //tsari hivandutyun
+                var r7 = getRandomArr(treeArr);
+                treeArr[r7].hivandutyun_mahacu = true;
+                hivandTsarer++;
+            }
+        }
+    }
+
+    else if (weather == 'autumn') {
+        for (var i = 0; i < 100; i++) {
+            var r = random(1200);
+
+            if (r <= 200 && grassArr.length > 0) {   //xoti hivandutyun
+                var r2 = getRandomArr(grassArr);
+                r2.hivandutyun_mahacu = true;
+                hivandXoter++;
+            }
+
+            else if (r > 200 && r <= 400 && xotakerArr.length > 0) {   //xotakeri hivandutyun
+                var r3 = getRandomArr(xotakerArr);
+                r3.hivandutyun_mahacu = true;
+                hivandXotakerner++;
+            }
+
+            else if (r > 400 && r <= 600 && gishatichArr.length > 0) {   //gishatchi hivandutyun
+                var r4 = getRandomArr(gishatichArr);
+                gishatichArr[r4].hivandutyun_mahacu = true;
+                hivandGishatichner++;
+            }
+
+            else if (r > 600 && r <= 800 && yntaniKendaniArr.length > 0) {   //yntani kendanu hivandutyun
+                var r5 = getRandomArr(yntaniKendaniArr);
+                yntaniKendaniArr[r5].hivandutyun_mahacu = true;
+                hivandYntaniKendaniner++;
+            }
+
+            else if (r > 800 && r <= 1000 && mardArr.length > 0) {   //mardu hivandutyun
+                var r6 = getRandomArr(mardArr);
+                mardArr[r6].hivandutyun_mahacu = true;
+                hivandMardik++;
+            }
+
+            else if (r > 100 && r <= 1200 && treeArr.length > 0) {   //tsari hivandutyun
+                var r7 = getRandomArr(treeArr);
+                treeArr[r7].hivandutyun_mahacu = true;
+                hivandTsarer++;
+            }
+        }
+    }
+
+    else if (weather == 'spring') {
+        for (var i = 0; i < 25; i++) {
+            var r = random(1200);
+
+            if (r <= 200 && grassArr.length > 0) {   //xoti hivandutyun
+                var r2 = getRandomArr(grassArr);
+                r2.hivandutyun_mahacu = true;
+                hivandXoter++;
+            }
+
+            else if (r > 200 && r <= 400 && xotakerArr.length > 0) {   //xotakeri hivandutyun
+                var r3 = getRandomArr(xotakerArr);
+                r3.hivandutyun_mahacu = true;
+                hivandXotakerner++;
+            }
+
+            else if (r > 400 && r <= 600 && gishatichArr.length > 0) {   //gishatchi hivandutyun
+                var r4 = getRandomArr(gishatichArr);
+                gishatichArr[r4].hivandutyun_mahacu = true;
+                hivandGishatichner++;
+            }
+
+            else if (r > 600 && r <= 800 && yntaniKendaniArr.length > 0) {   //yntani kendanu hivandutyun
+                var r5 = getRandomArr(yntaniKendaniArr);
+                yntaniKendaniArr[r5].hivandutyun_mahacu = true;
+                hivandYntaniKendaniner++;
+            }
+
+            else if (r > 800 && r <= 1000 && mardArr.length > 0) {   //mardu hivandutyun
+                var r6 = getRandomArr(mardArr);
+                mardArr[r6].hivandutyun_mahacu = true;
+                hivandMardik++;
+            }
+
+            else if (r > 100 && r <= 1200 && treeArr.length > 0) {   //tsari hivandutyun
+                var r7 = getRandomArr(treeArr);
+                treeArr[r7].hivandutyun_mahacu = true;
+                hivandTsarer++;
+            }
+        }
+    }
+}
+
+setInterval(hivandutyun, 9000);
 
 function draw() {
     for (var y = 0; y < matrix.length; ++y) {
@@ -244,7 +382,7 @@ function draw() {
 
     for (var i in grassArr) {
         grassArr[i].bazmanal();
-        grassArr[i].hivandutyun();
+        grassArr[i].mahanal();
     }
 
     for (var i in gishatichArr) {
@@ -260,8 +398,7 @@ function draw() {
 
     for (var i in xotakerArr) {
         xotakerArr[i].timeout();
-        xotakerArr[i].utel();
-        xotakerArr[i].hivandutyun();
+        xotakerArr[i].switch();
     }
 }
 

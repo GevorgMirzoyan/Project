@@ -10,6 +10,8 @@ module.exports = class Virus extends LivingCreature //done
 
     antiVirus() //done
     {
+        matrix[this.y][this.x] = 7;
+        
         this.virus_time ++;
 
         var virus_off = 0;

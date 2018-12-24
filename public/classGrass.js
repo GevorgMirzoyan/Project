@@ -2,9 +2,9 @@ var LivingCreature = require('./LivingCreature.js');
 
 module.exports = class Grass extends LivingCreature //done
 {
-    constructor(x, y) 
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu) 
     {
-        super(x, y);
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu);
         this.multiply_bazmanal = 0;
     }
 
@@ -73,91 +73,17 @@ module.exports = class Grass extends LivingCreature //done
         }
     }
 
-    hivandutyun() //done
+    mahanal () //done
     {
-        this.hivandutyun_timeout ++;
-
-        var hivandutyun_repeat = 0;
-        var numCount = 0;
-        var randomNumCount = 0;
-
-        if(weather == 'spring')
+        if(this.hivandutyun_mahacu == true)
         {
-            hivandutyun_repeat = 60;
-            numCount = 2000;
-            randomNumCount = 150;
-        }
-
-        else if(weather == 'summer')
-        {
-            hivandutyun_repeat = 80;
-            numCount = 3000;
-            randomNumCount = 100;
-        }
-
-        else if(weather == 'autumn')
-        {
-            hivandutyun_repeat = 40;
-            numCount = 1500;
-            randomNumCount = 250;
-        }
-
-        else if(weather == 'winter')
-        {
-            hivandutyun_repeat = 30;
-            numCount = 1000;
-            randomNumCount = 200;
-        }
-        
-        var numArr = [];
-
-        for(var a = 0; a < numCount; a++) //Numbers Array
-        {
-            var num = a;
-            numArr.push(num);
-        }
-
-        if(this.hivandutyun_timeout >= hivandutyun_repeat)
-        {
-            this.hivandutyun_timeout = 0;
-
-            var randomArr = [];
-            var bool = false;
-
-            for(var r = 0; r < randomNumCount; r++) //Random Numbers Array
+            for(var i in grassArr)
             {
-                var rand = Math.round(this.getRandomNum(numCount));
-                randomArr.push(rand);
-            }
-            
-            for(var i in randomArr) //Comparison of Arrays
-            {
-                var b = Math.round(this.getRandomNum(numCount));
-                
-                if(randomArr[i] == numArr[b])
+                if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
                 {
-                    bool = true;
+                    matrix[this.y][this.x] = 8;
+                    grassArr.splice(i, 1);
                 }
-            }
-            
-            if(bool == true)
-            {
-                hivandXoter ++;
-                this.hivandutyun_mahacu = true;
-                bool = false;
-                this.mahanal();
-            }
-        }
-    }
-
-    mahanal() //done
-    {
-        for(var i in grassArr)
-        {
-            if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
-            {
-                matrix[this.y][this.x] = 8;
-                grassArr.splice(i, 1)
             }
         }
     }

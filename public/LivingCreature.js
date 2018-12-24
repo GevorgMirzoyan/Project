@@ -6,7 +6,6 @@ module.exports = class LivingCreature //done
         this.y = y;
         this.hivandutyun_timeout = 0;
         this.hivandutyun_mahacu = false;
-        this.virus_time = 0;
     }
 
     yntrelVandak(ch) //done

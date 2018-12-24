@@ -102,7 +102,13 @@ socket.on('send matrix', function (matrix, weather) {
                 rect(x * side, y * side, side, side);
             }
 
-            else if (matrix[y][x] == 8) //virus
+            else if (matrix[y][x] == 7) //virus
+            {
+                fill("blue");
+                rect(x * side, y * side, side, side);
+            }
+
+            else if (matrix[y][x] == 8) //virusot vandak
             {
                 fill("black");
                 rect(x * side, y * side, side, side);

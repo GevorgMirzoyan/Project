@@ -2,9 +2,9 @@ var LivingCreature = require('./LivingCreature.js');
 
 module.exports = class Xotaker extends LivingCreature //done
 {
-    constructor(x, y) 
+    constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu) 
     {
-        super(x, y)
+        super(x, y, hivandutyun_timeout, hivandutyun_mahacu)
         this.energy = 8;
         this.axorjak = 0;
         this.ser = 0;
@@ -77,7 +77,6 @@ module.exports = class Xotaker extends LivingCreature //done
 
                 if(this.energy <= 0)
                 {
-                    this.energy_zero = true;
                     this.mahanal();
                 }
             }
@@ -88,7 +87,6 @@ module.exports = class Xotaker extends LivingCreature //done
 
                 if(this.energy <= 0)
                 {
-                    this.energy_zero = true;
                     this.mahanal();
                 }
             }
@@ -490,83 +488,6 @@ module.exports = class Xotaker extends LivingCreature //done
         }
     }
 
-    hivandutyun() //done
-    {
-        this.hivandutyun_timeout ++;
-
-        var hivandutyun_repeat = 0;
-        var numCount = 0;
-        var randomNumCount = 0;
-
-        if(weather == 'spring')
-        {
-            hivandutyun_repeat = 60;
-            numCount = 2500;
-            randomNumCount = 75;
-        }
-
-        else if(weather == 'summer')
-        {
-            hivandutyun_repeat = 80;
-            numCount = 3000;
-            randomNumCount = 50;
-        }
-
-        else if(weather == 'autumn')
-        {
-            hivandutyun_repeat = 40;
-            numCount = 1500;
-            randomNumCount = 150;
-        }
-
-        else if(weather == 'winter')
-        {
-            hivandutyun_repeat = 30;
-            numCount = 1000;
-            randomNumCount = 200;
-        }
-        
-        var numArr = [];
-
-        for(var a = 0; a < numCount; a++) //Numbers Array
-        {
-            var num = a;
-            numArr.push(num);
-        }
-
-        if(this.hivandutyun_timeout >= hivandutyun_repeat)
-        {
-            this.hivandutyun_timeout = 0;
-
-            var randomArr = [];
-            var bool = false;
-
-            for(var r = 0; r < randomNumCount; r++) //Random Numbers Array
-            {
-                var rand = Math.round(this.getRandomNum(numCount));
-                randomArr.push(rand);
-            }
-            
-            for(var i in randomArr) //Comparison of Arrays
-            {
-                var b = Math.round(this.getRandomNum(numCount));
-                
-                if(randomArr[i] == numArr[b])
-                {
-                    bool = true;
-                }
-            }
-            
-            if(bool == true)
-            {
-                hivandXotakerner ++;
-                this.hivandutyun_mahacu = true;
-                bool = false;
-                this.mahanal();
-            }
-        }
-    }
-
     mahanal() //done
     {
         if(this.hivandutyun_mahacu == true)
@@ -581,7 +502,7 @@ module.exports = class Xotaker extends LivingCreature //done
             }
         }
 
-        else if(this.energy_zero == true)
+        else
         {
             for(var i in xotakerArr)
             {
@@ -591,6 +512,19 @@ module.exports = class Xotaker extends LivingCreature //done
                     xotakerArr.splice(i, 1);
                 }
             }
+        }
+    }
+
+    switch () //done
+    {
+        if (this.hivandutyun_mahacu == true)
+        {
+            this.mahanal();
+        }
+
+        else if (this.hivandutyun_mahacu == false)
+        {
+            this.utel();
         }
     }
 }

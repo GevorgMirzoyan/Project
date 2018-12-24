@@ -1,24 +1,24 @@
 {
   "name": "project",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "Programming III",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git + https://github.com/GevorgMirzoyan/Project"
+    "url": "git+https://github.com/GevorgMirzoyan/Project.git"
   },
   "author": "GevorgMirzoyan",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GevorgMirzoyan/Project/issues"
+  },
+  "homepage": "https://github.com/GevorgMirzoyan/Project#readme",
   "dependencies": {
-    "expres": "0.0.5",
     "express": "^4.16.4",
     "socket.io": "^2.2.0"
-  },
-  "engines": {
-    "node": "4.7.2"
   }
 }
