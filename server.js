@@ -5,9 +5,9 @@ var io = require('socket.io')(server);
 var fs = require('fs');
 
 matrix = [];
-qanak = 20;
+qanak = 50;
 
-xotakerQanak = 15;
+xotakerQanak = 0;
 gishatichQanak = 0;
 mardQanak = 0;
 treeQanak = 0;
@@ -137,12 +137,12 @@ global.norYntaniKendaniner = 0;
 global.norMardik = 0;
 global.norVirusner = 0;
 
-global.hivandXoter = 0;
-global.hivandTsarer = 0;
-global.hivandXotakerner = 0;
-global.hivandGishatichner = 0;
-global.hivandYntaniKendaniner = 0;
-global.hivandMardik = 0;
+global.hivandacacXoter = 0;
+global.hivandacacTsarer = 0;
+global.hivandacacXotakerner = 0;
+global.hivandacacGishatichner = 0;
+global.hivandacacYntaniKendaniner = 0;
+global.hivandacacMardik = 0;
 
 for (var y = 0; y < matrix.length; ++y) {
     for (var x = 0; x < matrix[y].length; ++x) {
@@ -201,7 +201,7 @@ setInterval(function () {
     {
         'Xoteri qanak': grassArr.length, 'Xotakernei qanak': xotakerArr.length, 'Gishatichneri qanak': gishatichArr.length, 'Mardik': mardArr.length, 'Virusner': virusArr.length, 'Tsarer': treeArr.length,
         'Nor xoter': norXoter, 'Nor tsarer': norTsarer, 'Nor xotakerner': norXotakerner, 'Nor gishatichner': norGishatichner, 'Nor mardik': norMardik, 'Nor virusner': norVirusner,
-        'Hivand xoter': hivandXoter, 'Hivand tsarer': hivandTsarer, 'Hivand xotakerner': hivandXotakerner, 'Hivand gishatichner': hivandGishatichner, 'Hivand mardik': hivandMardik
+        'Hivandacac xoter': hivandacacXoter, 'Hivandacac tsarer': hivandacacTsarer, 'Hivandacac xotakerner': hivandacacXotakerner, 'Hivandacac gishatichner': hivandacacGishatichner, 'Hivandacac mardik': hivandacacMardik
     }
     info.Info.push(obj);
 
@@ -237,7 +237,7 @@ function hivandutyun() {
             if (r <= 200 && grassArr.length > 0) {   //xoti hivandutyun
                 var r2 = getRandomArr(grassArr);
                 r2.hivandutyun_mahacu = true;
-                hivandXoter++;
+                hivandacacXoter++;
             }
 
             else if (r > 200 && r <= 400 && xotakerArr.length > 0) {   //xotakeri hivandutyun
@@ -279,7 +279,7 @@ function hivandutyun() {
             if (r <= 200 && grassArr.length > 0) {   //xoti hivandutyun
                 var r2 = getRandomArr(grassArr);
                 r2.hivandutyun_mahacu = true;
-                hivandXoter++;
+                hivandacacXoter++;
             }
 
             else if (r > 200 && r <= 400 && xotakerArr.length > 0) {   //xotakeri hivandutyun
@@ -321,7 +321,7 @@ function hivandutyun() {
             if (r <= 200 && grassArr.length > 0) {   //xoti hivandutyun
                 var r2 = getRandomArr(grassArr);
                 r2.hivandutyun_mahacu = true;
-                hivandXoter++;
+                hivandacacXoter++;
             }
 
             else if (r > 200 && r <= 400 && xotakerArr.length > 0) {   //xotakeri hivandutyun
@@ -357,7 +357,7 @@ function hivandutyun() {
     }
 }
 
-setInterval(hivandutyun, 9000);
+setInterval(hivandutyun, 10000);
 
 function draw() {
     for (var y = 0; y < matrix.length; ++y) {
