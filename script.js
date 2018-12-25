@@ -98,19 +98,19 @@ socket.on('send matrix', function (matrix, weather) {
 
             else if (matrix[y][x] == 5) //tree
             {
-                fill("brown");
+                fill("#4F0A0C");
                 rect(x * side, y * side, side, side);
             }
 
             else if (matrix[y][x] == 7) //virus
             {
-                fill("blue");
+                fill("black");
                 rect(x * side, y * side, side, side);
             }
 
-            else if (matrix[y][x] == 8) //virusot vandak
+            else if (matrix[y][x] == 8) //hivand kerpar
             {
-                fill("black");
+                fill("#5D456E");
                 rect(x * side, y * side, side, side);
             }
         }

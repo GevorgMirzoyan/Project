@@ -10,7 +10,7 @@ qanak = 50;
 xotakerQanak = 0;
 gishatichQanak = 0;
 mardQanak = 0;
-treeQanak = 0;
+treeQanak = 300;
 
 function random(max) {
     return Math.round(Math.random() * max);
@@ -18,14 +18,6 @@ function random(max) {
 
 function getRandomNum(max) {
     return Math.floor(Math.random() * max);
-}
-
-function getRandomArr(array) //done
-{
-    var random_obj = Math.round(Math.random() * array.length);
-    var object = array[random_obj];
-
-    return object;
 }
 
 for (var a = 0; a < qanak; ++a) {
@@ -199,7 +191,7 @@ setInterval(function () {
 
     var obj =
     {
-        'Xoteri qanak': grassArr.length, 'Xotakernei qanak': xotakerArr.length, 'Gishatichneri qanak': gishatichArr.length, 'Mardik': mardArr.length, 'Virusner': virusArr.length, 'Tsarer': treeArr.length,
+        'Exanak': weather, 'Xoteri qanak': grassArr.length, 'Xotakernei qanak': xotakerArr.length, 'Gishatichneri qanak': gishatichArr.length, 'Mardik': mardArr.length, 'Virusner': virusArr.length, 'Tsarer': treeArr.length,
         'Nor xoter': norXoter, 'Nor tsarer': norTsarer, 'Nor xotakerner': norXotakerner, 'Nor gishatichner': norGishatichner, 'Nor mardik': norMardik, 'Nor virusner': norVirusner,
         'Hivandacac xoter': hivandacacXoter, 'Hivandacac tsarer': hivandacacTsarer, 'Hivandacac xotakerner': hivandacacXotakerner, 'Hivandacac gishatichner': hivandacacGishatichner, 'Hivandacac mardik': hivandacacMardik
     }
@@ -227,137 +219,195 @@ setInterval(function () {
     else if (weather == 'winter') {
         weather = 'spring';
     }
-}, 10000)
+}, 15000)
 
 function hivandutyun() {
     if (weather == 'winter') {
-        for (var i = 0; i < 150; i++) {
-            var r = random(1200);
+        var r = random(600);
 
-            if (r <= 200 && grassArr.length > 0) {   //xoti hivandutyun
-                var r2 = getRandomArr(grassArr);
-                r2.hivandutyun_mahacu = true;
+        if (r <= 100 && grassArr.length > 300) {
+            for (var i = 0; i < 300; i++) {
+                grassArr[i].hivandutyun_mahacu = true;
                 hivandacacXoter++;
             }
+        }
 
-            else if (r > 200 && r <= 400 && xotakerArr.length > 0) {   //xotakeri hivandutyun
-                var r3 = getRandomArr(xotakerArr);
-                r3.hivandutyun_mahacu = true;
-                hivandXotakerner++;
+        else if (r > 100 && r <= 200 && xotakerArr.length > 50) {
+            for (var i = 0; i < 50; i++) {
+                xotakerArr[i].hivandutyun_mahacu = true;
+                hivandacacXotakerner++;
             }
+        }
 
-            else if (r > 400 && r <= 600 && gishatichArr.length > 0) {   //gishatchi hivandutyun
-                var r4 = getRandomArr(gishatichArr);
-                gishatichArr[r4].hivandutyun_mahacu = true;
-                hivandGishatichner++;
+        else if (r > 200 && r <= 300 && gishatichArr.length > 30) {
+            for (var i = 0; i < 30; i++) {
+                gishatichArr[i].hivandutyun_mahacu = true;
+                hivandacacGishatichner++;
             }
+        }
 
-            else if (r > 600 && r <= 800 && yntaniKendaniArr.length > 0) {   //yntani kendanu hivandutyun
-                var r5 = getRandomArr(yntaniKendaniArr);
-                yntaniKendaniArr[r5].hivandutyun_mahacu = true;
-                hivandYntaniKendaniner++;
+        else if (r > 300 && r <= 400 && yntaniKendaniArr.length > 20) {
+            for (var i = 0; i < 20; i++) {
+                yntaniKendaniArr[i].hivandutyun_mahacu = true;
+                hivandacacYntaniKendaniner++;
             }
+        }
 
-            else if (r > 800 && r <= 1000 && mardArr.length > 0) {   //mardu hivandutyun
-                var r6 = getRandomArr(mardArr);
-                mardArr[r6].hivandutyun_mahacu = true;
-                hivandMardik++;
+        else if (r > 400 && r <= 500 && mardArr.length > 30) {
+            for (var i = 0; i < 30; i++) {
+                mardArr[i].hivandutyun_mahacu = true;
+                hivandacacMardik++;
             }
+        }
 
-            else if (r > 100 && r <= 1200 && treeArr.length > 0) {   //tsari hivandutyun
-                var r7 = getRandomArr(treeArr);
-                treeArr[r7].hivandutyun_mahacu = true;
-                hivandTsarer++;
+        else if (r > 500 && r <= 600 && treeArr.length > 100) {
+            for (var i = 0; i < 100; i++) {
+                treeArr[i].hivandutyun_mahacu = true;
+                hivandacacTsarer++;
             }
         }
     }
 
     else if (weather == 'autumn') {
-        for (var i = 0; i < 100; i++) {
-            var r = random(1200);
+        var r = random(600);
 
-            if (r <= 200 && grassArr.length > 0) {   //xoti hivandutyun
-                var r2 = getRandomArr(grassArr);
-                r2.hivandutyun_mahacu = true;
+        if (r <= 100 && grassArr.length > 200) {
+            for (var i = 0; i < 200; i++) {
+                grassArr[i].hivandutyun_mahacu = true;
                 hivandacacXoter++;
             }
+        }
 
-            else if (r > 200 && r <= 400 && xotakerArr.length > 0) {   //xotakeri hivandutyun
-                var r3 = getRandomArr(xotakerArr);
-                r3.hivandutyun_mahacu = true;
-                hivandXotakerner++;
+        else if (r > 100 && r <= 200 && xotakerArr.length > 30) {
+            for (var i = 0; i < 30; i++) {
+                xotakerArr[i].hivandutyun_mahacu = true;
+                hivandacacXotakerner++;
             }
+        }
 
-            else if (r > 400 && r <= 600 && gishatichArr.length > 0) {   //gishatchi hivandutyun
-                var r4 = getRandomArr(gishatichArr);
-                gishatichArr[r4].hivandutyun_mahacu = true;
-                hivandGishatichner++;
+        else if (r > 200 && r <= 300 && gishatichArr.length > 20) {
+            for (var i = 0; i < 20; i++) {
+                gishatichArr[i].hivandutyun_mahacu = true;
+                hivandacacGishatichner++;
             }
+        }
 
-            else if (r > 600 && r <= 800 && yntaniKendaniArr.length > 0) {   //yntani kendanu hivandutyun
-                var r5 = getRandomArr(yntaniKendaniArr);
-                yntaniKendaniArr[r5].hivandutyun_mahacu = true;
-                hivandYntaniKendaniner++;
+        else if (r > 300 && r <= 400 && yntaniKendaniArr.length > 10) {
+            for (var i = 0; i < 10; i++) {
+                yntaniKendaniArr[i].hivandutyun_mahacu = true;
+                hivandacacYntaniKendaniner++;
             }
+        }
 
-            else if (r > 800 && r <= 1000 && mardArr.length > 0) {   //mardu hivandutyun
-                var r6 = getRandomArr(mardArr);
-                mardArr[r6].hivandutyun_mahacu = true;
-                hivandMardik++;
+        else if (r > 400 && r <= 500 && mardArr.length > 15) {
+            for (var i = 0; i < 15; i++) {
+                mardArr[i].hivandutyun_mahacu = true;
+                hivandacacMardik++;
             }
+        }
 
-            else if (r > 100 && r <= 1200 && treeArr.length > 0) {   //tsari hivandutyun
-                var r7 = getRandomArr(treeArr);
-                treeArr[r7].hivandutyun_mahacu = true;
-                hivandTsarer++;
+        else if (r > 500 && r <= 600 && treeArr.length > 50) {
+            for (var i = 0; i < 50; i++) {
+                treeArr[i].hivandutyun_mahacu = true;
+                hivandacacTsarer++;
+            }
+        }
+    }
+
+    else if (weather == 'summer') {
+        var r = random(600);
+
+        if (r <= 100 && grassArr.length > 50) {
+            for (var i = 0; i < 50; i++) {
+                grassArr[i].hivandutyun_mahacu = true;
+                hivandacacXoter++;
+            }
+        }
+
+        else if (r > 100 && r <= 200 && xotakerArr.length > 10) {
+            for (var i = 0; i < 10; i++) {
+                xotakerArr[i].hivandutyun_mahacu = true;
+                hivandacacXotakerner++;
+            }
+        }
+
+        else if (r > 200 && r <= 300 && gishatichArr.length > 5) {
+            for (var i = 0; i < 5; i++) {
+                gishatichArr[i].hivandutyun_mahacu = true;
+                hivandacacGishatichner++;
+            }
+        }
+
+        else if (r > 300 && r <= 400 && yntaniKendaniArr.length > 3) {
+            for (var i = 0; i < 3; i++) {
+                yntaniKendaniArr[i].hivandutyun_mahacu = true;
+                hivandacacYntaniKendaniner
+            }
+        }
+
+        else if (r > 400 && r <= 500 && mardArr.length > 5) {
+            for (var i = 0; i < 5; i++) {
+                mardArr[i].hivandutyun_mahacu = true;
+                hivandacacGishatichner++;
+            }
+        }
+
+        else if (r > 500 && r <= 600 && treeArr.length > 10) {
+            for (var i = 0; i < 10; i++) {
+                treeArr[i].hivandutyun_mahacu = true;
+                hivandacacTsarer++;
             }
         }
     }
 
     else if (weather == 'spring') {
-        for (var i = 0; i < 25; i++) {
-            var r = random(1200);
+        var r = random(600);
 
-            if (r <= 200 && grassArr.length > 0) {   //xoti hivandutyun
-                var r2 = getRandomArr(grassArr);
-                r2.hivandutyun_mahacu = true;
+        if (r <= 100 && grassArr.length > 100) {
+            for (var i = 0; i < 100; i++) {
+                grassArr[i].hivandutyun_mahacu = true;
                 hivandacacXoter++;
             }
+        }
 
-            else if (r > 200 && r <= 400 && xotakerArr.length > 0) {   //xotakeri hivandutyun
-                var r3 = getRandomArr(xotakerArr);
-                r3.hivandutyun_mahacu = true;
-                hivandXotakerner++;
+        else if (r > 100 && r <= 200 && xotakerArr.length > 15) {
+            for (var i = 0; i < 15; i++) {
+                xotakerArr[i].hivandutyun_mahacu = true;
+                hivandacacXotakerner++;
             }
+        }
 
-            else if (r > 400 && r <= 600 && gishatichArr.length > 0) {   //gishatchi hivandutyun
-                var r4 = getRandomArr(gishatichArr);
-                gishatichArr[r4].hivandutyun_mahacu = true;
-                hivandGishatichner++;
+        else if (r > 200 && r <= 300 && gishatichArr.length > 10) {
+            for (var i = 0; i < 10; i++) {
+                gishatichArr[i].hivandutyun_mahacu = true;
+                hivandacacGishatichner++;
             }
+        }
 
-            else if (r > 600 && r <= 800 && yntaniKendaniArr.length > 0) {   //yntani kendanu hivandutyun
-                var r5 = getRandomArr(yntaniKendaniArr);
-                yntaniKendaniArr[r5].hivandutyun_mahacu = true;
-                hivandYntaniKendaniner++;
+        else if (r > 300 && r <= 400 && yntaniKendaniArr.length > 5) {
+            for (var i = 0; i < 5; i++) {
+                yntaniKendaniArr[i].hivandutyun_mahacu = true;
+                hivandacacYntaniKendaniner++;
             }
+        }
 
-            else if (r > 800 && r <= 1000 && mardArr.length > 0) {   //mardu hivandutyun
-                var r6 = getRandomArr(mardArr);
-                mardArr[r6].hivandutyun_mahacu = true;
-                hivandMardik++;
+        else if (r > 400 && r <= 500 && mardArr.length > 10) {
+            for (var i = 0; i < 10; i++) {
+                mardArr[i].hivandutyun_mahacu = true;
+                hivandacacMardik++;
             }
+        }
 
-            else if (r > 100 && r <= 1200 && treeArr.length > 0) {   //tsari hivandutyun
-                var r7 = getRandomArr(treeArr);
-                treeArr[r7].hivandutyun_mahacu = true;
-                hivandTsarer++;
+        else if (r > 500 && r <= 600 && treeArr.length > 25) {
+            for (var i = 0; i < 25; i++) {
+                treeArr[i].hivandutyun_mahacu = true;
+                hivandacacTsarer++;
             }
         }
     }
 }
 
-setInterval(hivandutyun, 10000);
+setInterval(hivandutyun, 3000);
 
 function draw() {
     for (var y = 0; y < matrix.length; ++y) {
@@ -393,11 +443,10 @@ function draw() {
 
     for (var i in treeArr) {
         treeArr[i].bazmanal();
-        treeArr[i].hivandutyun();
+        treeArr[i].mahanal();
     }
 
     for (var i in xotakerArr) {
-        xotakerArr[i].timeout();
         xotakerArr[i].switch();
     }
 }

@@ -83,6 +83,7 @@ module.exports = class Xotaker extends LivingCreature //done
 
             else
             {
+                this.axorjak = 0;
                 this.energy -= 1;
 
                 if(this.energy <= 0)
@@ -354,7 +355,7 @@ module.exports = class Xotaker extends LivingCreature //done
 
                         if(norVandak5)
                         {
-                            if(norVandak4[0] != norVandak5[0] && norVandak4[1] != norVandak5[1])
+                            if(norVandak5[0] != norVandak4[0] && norVandak5[1] != norVandak4[1])
                             {
                                 var norx = norVandak5[0];
                                 var nory = norVandak5[1];
@@ -464,6 +465,7 @@ module.exports = class Xotaker extends LivingCreature //done
                     if (this.x == grassArr[i].x && this.y == grassArr[i].y) 
                     {
                         grassArr.splice(i, 1);
+                        break;
                     }
                 }
 
@@ -525,6 +527,7 @@ module.exports = class Xotaker extends LivingCreature //done
         else if (this.hivandutyun_mahacu == false)
         {
             this.utel();
+            this.timeout();
         }
     }
 }
