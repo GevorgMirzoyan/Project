@@ -72,18 +72,6 @@ socket.on('send matrix', function (matrix, weather) {
                 rect(x * side, y * side, side, side);
             }
 
-            else if (matrix[y][x] == 6) //yntaniKendani_arakan
-            {
-                fill("#ff5000");
-                rect(x * side, y * side, side, side);
-            }
-
-            else if (matrix[y][x] == 6.5) //yntaniKendani_igakan
-            {
-                fill("#9825ed");
-                rect(x * side, y * side, side, side);
-            }
-
             else if (matrix[y][x] == 4) //mard_arakan
             {
                 fill("#840000");
@@ -99,6 +87,18 @@ socket.on('send matrix', function (matrix, weather) {
             else if (matrix[y][x] == 5) //tree
             {
                 fill("#4F0A0C");
+                rect(x * side, y * side, side, side);
+            }
+
+            else if (matrix[y][x] == 6) //yntaniKendani_arakan
+            {
+                fill("#ff5000");
+                rect(x * side, y * side, side, side);
+            }
+
+            else if (matrix[y][x] == 6.5) //yntaniKendani_igakan
+            {
+                fill("#9825ed");
                 rect(x * side, y * side, side, side);
             }
 

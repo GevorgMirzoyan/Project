@@ -7,10 +7,10 @@ var fs = require('fs');
 matrix = [];
 qanak = 75;
 
-xotakerQanak = 100;
-gishatichQanak = 500;
-mardQanak = 0;
-treeQanak = 0;
+xotakerQanak = 500;
+gishatichQanak = 100;
+mardQanak = 50;
+treeQanak = 300;
 
 function random(max) {
     return Math.round(Math.random() * max);

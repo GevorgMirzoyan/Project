@@ -209,7 +209,7 @@ module.exports = class Mard extends LivingCreature //done
                         }
                     }
 
-                    var yntaniKendani = new YntaniKendani(x, y);
+                    var yntaniKendani = new YntaniKendani(gishatich.x, gishatich.y);
                     yntaniKendaniArr.push(yntaniKendani);
                     norYntaniKendaniner++;
 
