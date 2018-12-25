@@ -4,7 +4,6 @@ module.exports = class Gishatich extends LivingCreature //done
 {
     constructor(x, y, hivandutyun_timeout, hivandutyun_mahacu) {
         super(x, y, hivandutyun_timeout, hivandutyun_mahacu)
-        this.yntaniKendani = false;
         this.energy = 25;
         this.axorjak = 0;
         this.ser = 0;
@@ -68,17 +67,18 @@ module.exports = class Gishatich extends LivingCreature //done
                 var nory = norVandak[1];
 
                 if (this.ser == 1) {
-                    matrix[nory][norx] = 3;
+                    matrix[nory][norx] = 6;
                 }
 
                 else {
-                    matrix[nory][norx] = 3.5;
+                    matrix[nory][norx] = 6.5;
                 }
 
                 this.x = norx;
                 this.y = nory;
 
                 this.energy -= 1;
+                this.axorjak = 0;
 
                 if (this.energy <= 0) {
                     this.mahanal();
@@ -101,14 +101,15 @@ module.exports = class Gishatich extends LivingCreature //done
                 this.y = nory;
 
                 if (this.ser == 1) {
-                    matrix[nory][norx] = 3;
+                    matrix[nory][norx] = 6;
                 }
 
                 else {
-                    matrix[nory][norx] = 3.5;
+                    matrix[nory][norx] = 6.5;
                 }
 
                 this.energy -= 1;
+                this.axorjak = 0;
 
                 if (this.energy <= 0) {
                     this.mahanal();
@@ -116,6 +117,7 @@ module.exports = class Gishatich extends LivingCreature //done
             }
 
             else {
+                this.axorjak = 0;
                 this.energy -= 1;
 
                 if (this.energy <= 0) {
@@ -170,49 +172,49 @@ module.exports = class Gishatich extends LivingCreature //done
             var norVandak4 = this.getRandomArr(xotaker);
             var norVandak5 = this.getRandomArr(xotaker);
 
-            var gishatich = this.yntrelVandak(3.5);
-            var norVandak2 = this.getRandomArr(gishatich);
+            var yntaniKendani = this.yntrelVandak(6.5);
+            var norVandak2 = this.getRandomArr(yntaniKendani);
 
             if (norVandak2) {
-                for (var i in gishatichArr) {
-                    if (norVandak2[0] == gishatichArr[i].x && norVandak2[1] == gishatichArr[i].y) {
-                        var gishatich_igakan = gishatichArr[i];
+                for (var i in yntaniKendaniArr) {
+                    if (norVandak2[0] == yntaniKendaniArr[i].x && norVandak2[1] == yntaniKendaniArr[i].y) {
+                        var yntaniKendani_igakan = yntaniKendaniArr[i];
                     }
                 }
 
                 if (norVandak) {
                     this.bazmanal_timeout = false;
 
-                    if (gishatich_igakan.bazmacox == false) {
+                    if (yntaniKendani_igakan.bazmacox == false) {
                         var norx = norVandak[0];
                         var nory = norVandak[1];
 
                         var r = Math.floor(this.getRandomNum(5));
 
                         if (r >= 1) {
-                            matrix[nory][norx] = 3;
+                            matrix[nory][norx] = 6;
                         }
 
                         else {
-                            matrix[nory][norx] = 3.5;
+                            matrix[nory][norx] = 6.5;
                         }
 
-                        var norGishatich = new Gishatich(norx, nory);
-                        gishatichArr.push(norGishatich);
+                        var norYntaniKendani = new YntaniKendani(norx, nory);
+                        yntaniKendaniArr.push(norYntaniKendani);
 
-                        norGishatichner++;
+                        norYntaniKendaniner++;
 
-                        if (matrix[nory][norx] == 3) {
-                            norGishatich.ser = 1;
+                        if (matrix[nory][norx] == 6) {
+                            norYntaniKendani.ser = 1;
                         }
 
                         else {
-                            norGishatich.ser = 2;
+                            norYntaniKendani.ser = 2;
                         }
                     }
 
-                    else if (gishatich_igakan.bazmacox == true) {
-                        gishatich_igakan.bazmacox = false;
+                    else if (yntaniKendani_igakan.bazmacox == true) {
+                        yntaniKendani_igakan.bazmacox = false;
 
                         var norx = norVandak[0];
                         var nory = norVandak[1];
@@ -220,24 +222,24 @@ module.exports = class Gishatich extends LivingCreature //done
                         var r = Math.floor(this.getRandomNum(5));
 
                         if (r >= 1) {
-                            matrix[nory][norx] = 3;
+                            matrix[nory][norx] = 6;
                         }
 
                         else {
-                            matrix[nory][norx] = 3.5;
+                            matrix[nory][norx] = 6.5;
                         }
 
-                        var norGishatich = new Gishatich(norx, nory);
-                        gishatichArr.push(norGishatich);
+                        var norYntaniKendani = new YntaniKendani(norx, nory);
+                        yntaniKendaniArr.push(norYntaniKendani);
 
-                        norGishatichner++;
+                        norYntaniKendaniner++;
 
-                        if (matrix[nory][norx] == 3) {
-                            norGishatich.ser = 1;
+                        if (matrix[nory][norx] == 6) {
+                            norYntaniKendani.ser = 1;
                         }
 
                         else {
-                            norGishatich.ser = 2;
+                            norYntaniKendani.ser = 2;
                         }
 
                         if (norVandak3) {
@@ -248,24 +250,24 @@ module.exports = class Gishatich extends LivingCreature //done
                                 var r2 = Math.floor(this.getRandomNum(5));
 
                                 if (r2 >= 1) {
-                                    matrix[nory][norx] = 3;
+                                    matrix[nory][norx] = 6;
                                 }
 
                                 else {
-                                    matrix[nory][norx] = 3.5;
+                                    matrix[nory][norx] = 6.5;
                                 }
 
-                                var norGishatich2 = new Gishatich(norx, nory);
-                                gishatichArr.push(norGishatich2);
+                                var norYntaniKendani2 = new YntaniKendani(norx, nory);
+                                yntaniKendaniArr.push(norYntaniKendani2);
 
-                                norGishatichner++;
+                                norYntaniKendaniner++;
 
-                                if (matrix[nory][norx] == 3) {
-                                    norGishatich2.ser = 1;
+                                if (matrix[nory][norx] == 6) {
+                                    norYntaniKendani2.ser = 1;
                                 }
 
                                 else {
-                                    norGishatich2.ser = 2;
+                                    norYntaniKendani2.ser = 2;
                                 }
                             }
                         }
@@ -275,43 +277,43 @@ module.exports = class Gishatich extends LivingCreature //done
                 else if (norVandak4) {
                     this.bazmanal_timeout = false;
 
-                    if (gishatich_igakan.bazmacox == false) {
+                    if (yntaniKendani_igakan.bazmacox == false) {
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
 
                         var r = Math.floor(this.getRandomNum(5));
 
                         if (r >= 1) {
-                            matrix[nory][norx] = 3;
+                            matrix[nory][norx] = 6;
                         }
 
                         else {
-                            matrix[nory][norx] = 3.5;
+                            matrix[nory][norx] = 6.5;
                         }
 
-                        var norGishatich = new Gishatich(norx, nory);
-                        gishatichArr.push(norGishatich);
+                        var norYntaniKendani = new YntaniKendani(norx, nory);
+                        yntaniKendaniArr.push(norYntaniKendani);
 
-                        norGishatichner++;
+                        norYntaniKendaniner++;
 
-                        if (matrix[nory][norx] == 3) {
-                            norGishatich.ser = 1;
+                        if (matrix[nory][norx] == 6) {
+                            norYntaniKendani.ser = 1;
                         }
 
                         else {
-                            norGishatich.ser = 2;
+                            norYntaniKendani.ser = 2;
                         }
 
                         for (var i in xotakerArr) {
-                            if (norGishatich.x == xotakerArr[i].x && norGishatich.y == xotakerArr[i].y) {
+                            if (norYntaniKendani.x == xotakerArr[i].x && norYntaniKendani.y == xotakerArr[i].y) {
                                 xotakerArr.splice(i, 1);
-                                norGishatich.axorjak += 1;
+                                norYntaniKendani.axorjak += 1;
                             }
                         }
                     }
 
-                    else if (gishatich_igakan.bazmacox == true) {
-                        gishatich_igakan.bazmacox = false;
+                    else if (yntaniKendani_igakan.bazmacox == true) {
+                        yntaniKendani_igakan.bazmacox = false;
 
                         var norx = norVandak4[0];
                         var nory = norVandak4[1];
@@ -319,65 +321,65 @@ module.exports = class Gishatich extends LivingCreature //done
                         var r = Math.floor(this.getRandomNum(5));
 
                         if (r >= 1) {
-                            matrix[nory][norx] = 3;
+                            matrix[nory][norx] = 6;
                         }
 
                         else {
-                            matrix[nory][norx] = 3.5;
+                            matrix[nory][norx] = 6.5;
                         }
 
-                        var norGishatich = new Gishatich(norx, nory);
-                        gishatichArr.push(norGishatich);
+                        var norYntaniKendani = new YntaniKendani(norx, nory);
+                        yntaniKendaniArr.push(norYntaniKendani);
 
-                        norGishatichner++;
+                        norYntaniKendaniner++;
 
-                        if (matrix[nory][norx] == 3) {
-                            norGishatich.ser = 1;
+                        if (matrix[nory][norx] == 6) {
+                            norYntaniKendani.ser = 1;
                         }
 
                         else {
-                            norGishatich.ser = 2;
+                            norYntaniKendani.ser = 2;
                         }
 
                         for (var i in xotakerArr) {
-                            if (norGishatich.x == xotakerArr[i].x && norGishatich.y == xotakerArr[i].y) {
+                            if (norYntaniKendani.x == xotakerArr[i].x && norYntaniKendani.y == xotakerArr[i].y) {
                                 xotakerArr.splice(i, 1);
-                                norGishatich.axorjak += 1;
+                                norYntaniKendani.axorjak += 1;
                             }
                         }
 
                         if (norVandak5) {
-                            if (norVandak4[0] != norVandak5[0] && norVandak4[1] != norVandak5[1]) {
+                            if (norVandak5[0] != norVandak4[0] && norVandak5[1] != norVandak4[1]) {
                                 var norx = norVandak5[0];
                                 var nory = norVandak5[1];
 
                                 var r2 = Math.floor(this.getRandomNum(5));
 
                                 if (r2 >= 1) {
-                                    matrix[nory][norx] = 3;
+                                    matrix[nory][norx] = 6;
                                 }
 
                                 else {
-                                    matrix[nory][norx] = 3.5;
+                                    matrix[nory][norx] = 6.5;
                                 }
 
-                                var norGishatich2 = new Xotaker(norx, nory);
-                                gishatichArr.push(norGishatich2);
+                                var norYntaniKendani2 = new YntaniKendani(norx, nory);
+                                yntaniKendaniArr.push(norYntaniKendani2);
 
-                                norGishatichner++;
+                                norYntaniKendaniner++;
 
-                                if (matrix[nory][norx] == 3) {
-                                    norGishatich2.ser = 1;
+                                if (matrix[nory][norx] == 6) {
+                                    norYntaniKendani2.ser = 1;
                                 }
 
                                 else {
-                                    norGishatich2.ser = 2;
+                                    norYntaniKendani2.ser = 2;
                                 }
 
                                 for (var i in xotakerArr) {
-                                    if (norGishatich2.x == xotakerArr[i].x && norGishatich2.y == xotakerArr[i].y) {
+                                    if (norYntaniKendani2.x == xotakerArr[i].x && norYntaniKendani2.y == xotakerArr[i].y) {
                                         xotakerArr.splice(i, 1);
-                                        norGishatich2.axorjak += 1;
+                                        norYntaniKendani2.axorjak += 1;
                                     }
                                 }
                             }
@@ -388,43 +390,43 @@ module.exports = class Gishatich extends LivingCreature //done
                 else if (norVandak6) {
                     this.bazmanal_timeout = false;
 
-                    if (gishatich_igakan.bazmacox == false) {
+                    if (yntaniKendani_igakan.bazmacox == false) {
                         var norx = norVandak6[0];
                         var nory = norVandak6[1];
 
                         var r = Math.floor(this.getRandomNum(5));
 
                         if (r >= 1) {
-                            matrix[nory][norx] = 3;
+                            matrix[nory][norx] = 6;
                         }
 
                         else {
-                            matrix[nory][norx] = 3.5;
+                            matrix[nory][norx] = 6.5;
                         }
 
-                        var norGishatich = new Gishatich(norx, nory);
-                        gishatichArr.push(norGishatich);
+                        var norYntaniKendani = new YntaniKendani(norx, nory);
+                        yntaniKendaniArr.push(norYntaniKendani);
 
-                        norGishatichner++;
+                        norYntaniKendaniner++;
 
-                        if (matrix[nory][norx] == 3) {
-                            norGishatich.ser = 1;
+                        if (matrix[nory][norx] == 6) {
+                            norYntaniKendani.ser = 1;
                         }
 
                         else {
-                            norGishatich.ser = 2;
+                            norYntaniKendani.ser = 2;
                         }
 
                         for (var i in xotakerArr) {
-                            if (norGishatich.x == xotakerArr[i].x && norGishatich.y == xotakerArr[i].y) {
+                            if (norYntaniKendani.x == xotakerArr[i].x && norYntaniKendani.y == xotakerArr[i].y) {
                                 xotakerArr.splice(i, 1);
-                                norGishatich.axorjak += 1;
+                                norYntaniKendani.axorjak += 1;
                             }
                         }
                     }
 
-                    else if (gishatich_igakan.bazmacox == true) {
-                        gishatich_igakan.bazmacox = false;
+                    else if (yntaniKendani_igakan.bazmacox == true) {
+                        yntaniKendani_igakan.bazmacox = false;
 
                         var norx = norVandak6[0];
                         var nory = norVandak6[1];
@@ -432,30 +434,30 @@ module.exports = class Gishatich extends LivingCreature //done
                         var r = Math.floor(this.getRandomNum(5));
 
                         if (r >= 1) {
-                            matrix[nory][norx] = 3;
+                            matrix[nory][norx] = 6;
                         }
 
                         else {
-                            matrix[nory][norx] = 3.5;
+                            matrix[nory][norx] = 6.5;
                         }
 
-                        var norGishatich = new Gishatich(norx, nory);
-                        gishatichArr.push(norGishatich);
+                        var norYntaniKendani = new YntaniKendani(norx, nory);
+                        yntaniKendaniArr.push(norYntaniKendani);
 
-                        norGishatichner++;
+                        norYntaniKendaniner++;
 
                         if (matrix[nory][norx] == 3) {
-                            norGishatich.ser = 1;
+                            norYntaniKendani.ser = 1;
                         }
 
                         else {
-                            norGishatich.ser = 2;
+                            norYntaniKendani.ser = 2;
                         }
 
                         for (var i in xotakerArr) {
-                            if (norGishatich.x == xotakerArr[i].x && norGishatich.y == xotakerArr[i].y) {
+                            if (norYntaniKendani.x == xotakerArr[i].x && norYntaniKendani.y == xotakerArr[i].y) {
                                 xotakerArr.splice(i, 1);
-                                norGishatich.axorjak += 1;
+                                norYntaniKendani.axorjak += 1;
                             }
                         }
 
@@ -467,30 +469,30 @@ module.exports = class Gishatich extends LivingCreature //done
                                 var r2 = Math.floor(this.getRandomNum(5));
 
                                 if (r2 >= 1) {
-                                    matrix[nory][norx] = 3;
+                                    matrix[nory][norx] = 6;
                                 }
 
                                 else {
-                                    matrix[nory][norx] = 3.5;
+                                    matrix[nory][norx] = 6.5;
                                 }
 
-                                var norGishatich2 = new Xotaker(norx, nory);
-                                gishatichArr.push(norGishatich2);
+                                var norYntaniKendani2 = new YntaniKendani(norx, nory);
+                                yntaniKendaniArr.push(norYntaniKendani2);
 
-                                norGishatichner++;
+                                norYntaniKendaniner++;
 
-                                if (matrix[nory][norx] == 3) {
-                                    norGishatich2.ser = 1;
+                                if (matrix[nory][norx] == 6) {
+                                    norYntaniKendani2.ser = 1;
                                 }
 
                                 else {
-                                    norGishatich2.ser = 2;
+                                    norYntaniKendani2.ser = 2;
                                 }
 
                                 for (var i in xotakerArr) {
-                                    if (norGishatich2.x == xotakerArr[i].x && norGishatich2.y == xotakerArr[i].y) {
+                                    if (norYntaniKendani2.x == xotakerArr[i].x && norYntaniKendani2.y == xotakerArr[i].y) {
                                         xotakerArr.splice(i, 1);
-                                        norGishatich2.axorjak += 1;
+                                        norYntaniKendani2.axorjak += 1;
                                     }
                                 }
                             }
@@ -504,16 +506,14 @@ module.exports = class Gishatich extends LivingCreature //done
     utel() //done
     {
         if (this.hivandutyun_mahacu == false && weather != 'winter') {
+
             var xotaker = this.yntrelVandak(2);
             var norVandak = this.getRandomArr(xotaker);
 
             var xotaker2 = this.yntrelVandak(2.5);
-            var norVandak3 = this.getRandomArr(xotaker2);
+            var norVandak2 = this.getRandomArr(xotaker2);
 
-            var mard = this.yntrelVandak(4.5);
-            var norVandak2 = this.getRandomArr(mard);
-
-            if (norVandak || norVandak3) {
+            if (norVandak || norVandak2) {
                 this.axorjak += 1;
                 this.energy += 2;
 
@@ -524,17 +524,17 @@ module.exports = class Gishatich extends LivingCreature //done
                     var nory = norVandak[1];
                 }
 
-                else if (norVandak3) {
-                    var norx = norVandak3[0];
-                    var nory = norVandak3[1];
+                else if (norVandak2) {
+                    var norx = norVandak2[0];
+                    var nory = norVandak2[1];
                 }
 
                 if (this.ser == 1) {
-                    matrix[nory][norx] = 3;
+                    matrix[nory][norx] = 6;
                 }
 
                 else {
-                    matrix[nory][norx] = 3.5;
+                    matrix[nory][norx] = 6.5;
                 }
 
                 this.x = norx;
@@ -562,70 +562,28 @@ module.exports = class Gishatich extends LivingCreature //done
                 }
             }
 
-            else if (norVandak2) {
-                this.axorjak += 1;
-                this.energy += 3;
-
-                matrix[this.y][this.x] = 0;
-                var norx = norVandak2[0];
-                var nory = norVandak2[1];
-
-                if (this.ser == 1) {
-                    matrix[nory][norx] = 3;
-                }
-
-                else {
-                    matrix[nory][norx] = 3.5;
-                }
-
-                this.x = norx;
-                this.y = nory;
-
-                if (this.energy > 25) {
-                    this.energy = 25;
-                }
-
-                for (var i in mardArr) {
-                    if (this.x == mardArr[i].x && this.y == mardArr[i].y) {
-                        mardArr.splice(i, 1);
-                    }
-                }
-
-                if (this.axorjak >= 7 && this.ser == 1) {
-                    this.bazmacox = true;
-                    this.axorjak = 0;
-                    this.bazmanal();
-                }
-
-                else if (this.axorjak >= 7 && this.ser == 2) {
-                    this.bazmacox = true;
-                    this.axorjak = 0;
-                }
-            }
-
             else {
                 this.sharjvel();
             }
-
         }
     }
 
     mahanal() //done
     {
         if (this.hivandutyun_mahacu == true) {
-            for (var i in gishatichArr) {
-                if (this.x == gishatichArr[i].x && this.y == gishatichArr[i].y) {
+            for (var i in yntaniKendaniArr) {
+                if (this.x == yntaniKendaniArr[i].x && this.y == yntaniKendaniArr[i].y) {
                     matrix[this.y][this.x] = 8;
-                    gishatichArr.splice(i, 1);
+                    yntaniKendaniArr.splice(i, 1);
                 }
             }
         }
 
         else {
-            for (var i in gishatichArr) {
-                if (this.x == gishatichArr[i].x && this.y == gishatichArr[i].y) {
+            for (var i in yntaniKendaniArr) {
+                if (this.x == yntaniKendaniArr[i].x && this.y == yntaniKendaniArr[i].y) {
                     matrix[this.y][this.x] = 0;
-                    gishatichArr.splice(i, 1);
+                    yntaniKendaniArr.splice(i, 1);
                 }
             }
         }

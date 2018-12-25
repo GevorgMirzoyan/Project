@@ -5,12 +5,12 @@ var io = require('socket.io')(server);
 var fs = require('fs');
 
 matrix = [];
-qanak = 50;
+qanak = 75;
 
-xotakerQanak = 0;
-gishatichQanak = 0;
+xotakerQanak = 100;
+gishatichQanak = 500;
 mardQanak = 0;
-treeQanak = 300;
+treeQanak = 0;
 
 function random(max) {
     return Math.round(Math.random() * max);
@@ -104,6 +104,7 @@ global.Grass = require("./public/classGrass.js");
 global.Tree = require("./public/classTree.js");
 global.Xotaker = require("./public/classXotaker.js");
 global.Gishatich = require("./public/classGishatich.js");
+global.YntaniKendani = require("./public/classYntaniKendani.js");
 global.Mard = require("./public/classMard.js");
 global.Virus = require("./public/classVirus.js");
 
@@ -191,9 +192,9 @@ setInterval(function () {
 
     var obj =
     {
-        'Exanak': weather, 'Xoteri qanak': grassArr.length, 'Xotakernei qanak': xotakerArr.length, 'Gishatichneri qanak': gishatichArr.length, 'Mardik': mardArr.length, 'Virusner': virusArr.length, 'Tsarer': treeArr.length,
-        'Nor xoter': norXoter, 'Nor tsarer': norTsarer, 'Nor xotakerner': norXotakerner, 'Nor gishatichner': norGishatichner, 'Nor mardik': norMardik, 'Nor virusner': norVirusner,
-        'Hivandacac xoter': hivandacacXoter, 'Hivandacac tsarer': hivandacacTsarer, 'Hivandacac xotakerner': hivandacacXotakerner, 'Hivandacac gishatichner': hivandacacGishatichner, 'Hivandacac mardik': hivandacacMardik
+        'Exanak': weather, 'Xoteri qanak': grassArr.length, 'Xotakernei qanak': xotakerArr.length, 'Gishatichneri qanak': gishatichArr.length, 'Yntani Kendanineri qanak' : yntaniKendaniArr.length, 'Mardik': mardArr.length, 'Virusner': virusArr.length, 'Tsarer': treeArr.length,
+        'Nor xoter': norXoter, 'Nor tsarer': norTsarer, 'Nor xotakerner': norXotakerner, 'Nor gishatichner': norGishatichner, 'Nor Yntani Kendaniner' : norYntaniKendaniner, 'Nor mardik': norMardik, 'Nor virusner': norVirusner,
+        'Hivandacac xoter': hivandacacXoter, 'Hivandacac tsarer': hivandacacTsarer, 'Hivandacac xotakerner': hivandacacXotakerner, 'Hivandacac gishatichner': hivandacacGishatichner, 'Hivand Yntani Kendaniner' : hivandacacYntaniKendaniner, 'Hivandacac mardik': hivandacacMardik
     }
     info.Info.push(obj);
 
@@ -407,7 +408,7 @@ function hivandutyun() {
     }
 }
 
-setInterval(hivandutyun, 3000);
+setInterval(hivandutyun, 7500);
 
 function draw() {
     for (var y = 0; y < matrix.length; ++y) {
@@ -425,9 +426,7 @@ function draw() {
     }
 
     for (var i in mardArr) {
-        mardArr[i].timeout();
-        mardArr[i].utel();
-        mardArr[i].hivandutyun();
+        mardArr[i].switch();
     }
 
     for (var i in grassArr) {
@@ -436,9 +435,11 @@ function draw() {
     }
 
     for (var i in gishatichArr) {
-        gishatichArr[i].timeout();
-        gishatichArr[i].utel();
-        gishatichArr[i].hivandutyun();
+        gishatichArr[i].switch();
+    }
+
+    for (var i in yntaniKendaniArr) {
+        yntaniKendaniArr[i].switch();
     }
 
     for (var i in treeArr) {
