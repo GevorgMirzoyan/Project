@@ -92,13 +92,13 @@ socket.on('send matrix', function (matrix, weather) {
 
             else if (matrix[y][x] == 6) //yntaniKendani_arakan
             {
-                fill("#ff5000");
+                fill("#18def4");
                 rect(x * side, y * side, side, side);
             }
 
             else if (matrix[y][x] == 6.5) //yntaniKendani_igakan
             {
-                fill("#9825ed");
+                fill("#26565b");
                 rect(x * side, y * side, side, side);
             }
 
